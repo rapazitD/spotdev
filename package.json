@@ -20,7 +20,9 @@
     "upload:hubl": "hs upload spotdev-theme spotdev-theme",
     "deploy": "hs project upload"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/css-modules": "^1.0.5"
+  },
   "engines": {
     "node": ">=16.0.0"
   }
