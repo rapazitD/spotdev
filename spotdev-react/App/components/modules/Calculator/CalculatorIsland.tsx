@@ -6,15 +6,17 @@ import classes from "./Calculator.module.css"
 
 const CalculatorIsland = (props: CalculatorProps) => {    
     const { fieldValues } = props;
-    const {textTitle, textSection } = fieldValues;
-    console.log(fieldValues);
+    const {textTitle, textSection, calculateText } = fieldValues;
     
-    
+    console.log('calculateText',calculateText)
     return (
-        <div className={`${classes.colorbackground}`}>
+        <div className={`${classes.container}`}>
             <TextComponent textTitle={textTitle} textSection={textSection} />
-            <p>test</p>
-            <CalculatorCard cardTitle={"test title"} firstNumber={5} secondNumber={5}></CalculatorCard>
+            <CalculatorCard 
+                cardTitle={"Calculation title"} 
+                btnCalculateText={calculateText}                
+            >
+            </CalculatorCard>
         </div>
     );
 };

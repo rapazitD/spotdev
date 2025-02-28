@@ -10,5 +10,6 @@ export const fields = (
             required 
         />
         <TextField name="textSection" label="Text section" required default="Lore ipsum sit dolor amet nunquam consequitur azarat mithrion zinthos raxacorico"/>
+        <TextField name="calculateText" label="Calculate button text" required default="Calculate"/>
     </ModuleFields>
 )
