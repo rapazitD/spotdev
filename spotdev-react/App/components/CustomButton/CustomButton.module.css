@@ -1,0 +1,45 @@
+/* colored btn */
+.colorBtn {
+  background-color: #5c4ac7; 
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: all 0.2s ease-in-out;
+}
+
+.colorBtn:hover {
+  background-color: #4a3bbf;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.15);
+}
+
+.colorBtn:active {
+  background-color: #3d32a8;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* border btn */
+.borderBtn {
+  background-color: transparent;
+  color: #9a9a9a;
+  font-weight: bold;
+  border: 1.5px solid #b0b0b0;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.borderBtn:hover {
+  border-color: #404040;
+  color: #404040;
+}
+
+.borderBtn:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}

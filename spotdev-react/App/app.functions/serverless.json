@@ -1,0 +1,12 @@
+{
+    "appFunctions": {
+      "functionName": {
+         "file": "fetchExchangeRate.js",
+         "secrets": ["EXCHANGE_RATE_API_KEY"],
+         "endpoint": {
+           "path": "path/to/endpoint",
+           "method": ["GET"]
+          }
+       }
+    }
+  }

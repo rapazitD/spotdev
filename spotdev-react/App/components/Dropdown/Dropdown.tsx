@@ -13,6 +13,7 @@ const Dropdown = ({options, selectedOption} : DropdownProps) => {
     const onClickHandler = (option: string) => {
         setOptionDisplayed(option);
         selectedOption(option);
+        setShowDropdown(!showDropdown)
     }
 
     return (
@@ -21,19 +22,23 @@ const Dropdown = ({options, selectedOption} : DropdownProps) => {
                 onClick={() => toggleDropDown()}
                 className={`${styles.button}`}
             >
-                    {optionDisplayed} 
+                <span className={`${styles.dropdownIconBtn}`}>
+                    {optionDisplayed}
+                </span>   
             </button>
                 {showDropdown && 
-                    <div>
+                    <div className={`${styles.dropdownContainer}`}>
                         {options.map((option, index) => (
                         <div key={index+1}>
                             <button
                                 onClick={(): void => {
                                     onClickHandler(option);
                                 }}
-                                className={`${styles.button}`}
+                                className={`${styles.dropdownBtn}`}
                             >
-                                {option}
+                                <span className={`${styles.dropdownIconBtn}`}>
+                                    {option}
+                                </span>
                             </button>
                         </div>
                         ))}

@@ -1,10 +1,9 @@
 export type CalculatorCardProps = {
     cardTitle: string;
-    firstNumber: number;
-    secondNumber: number;
+    btnCalculateText: string;
 }
 
-export type History = {
+export type CaldulatorCardHistoryProps = {
     id: number;
     firstNumber: number;
     secondNumber: number;

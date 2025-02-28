@@ -1,0 +1,22 @@
+{
+    "runtime": "nodejs18.x",
+    "version": "1.0",
+    "environment": {
+      "globalConfigKey": "some-value"
+    },
+    "secrets": ["EXCHANGE_RATE_API_KEY"],
+    "endpoints": {
+      "events": {
+        "file": "exchangeRate.js",
+        "method": "GET"
+      },
+      "events/update": {
+        "method": "POST",
+        "file": "action2.js",
+        "environment": {
+          "CONFIG_KEY": "some-other-value"
+        },
+        "secrets": ["googleKeyName", "otherkeyname"]
+      }
+    }
+  }

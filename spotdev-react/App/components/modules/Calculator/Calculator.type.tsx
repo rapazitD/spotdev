@@ -1,7 +1,13 @@
 import { CalculatorCardProps } from "../../CalculatorCard/CalculatorCard.types.ts";
-import {type TextComponentProps} from "../../TextComponent/TextComponent.types.ts"
+
+export type fieldTypes = {
+    textTitle: string;
+    textSection: string;
+    calculateText: string;
+}
 
 export type CalculatorProps = {
-    fieldValues: TextComponentProps;
+    fieldValues: fieldTypes;
     cardValues: CalculatorCardProps;
+    calculateText:  string;
 }
