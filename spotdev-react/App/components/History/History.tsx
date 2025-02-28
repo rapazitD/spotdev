@@ -42,7 +42,7 @@ const History = ({history, resetValues} : HistoryProps) => {
                         ))}
                     </div>
                 ) : (
-                    <p>ss</p>
+                    <p>Press CALCULATE to start saving your results</p>
                 )} 
             </div>
             
