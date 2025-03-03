@@ -1,0 +1,50 @@
+.container  {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    transition: width 0.2s;
+    gap: 10px;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container:hover {
+    width: 164px;
+}
+
+.containerIconBtn {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    transition: width 0.2s;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0
+}
+
+.iconBtnIcon {
+    padding-left: 0px;
+}
+
+.textContainer {
+    font-size: 12px;
+    font-weight: 400px; 
+}
+
+.icon {
+    padding-left: 10px;
+}
+
+@media only screen and (max-width: 992px) {
+    .container{
+        width: 164px;
+    }
+}
+
+button {
+    border: 0px;
+    padding: 0px;
+}
