@@ -100,8 +100,8 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
     // exchange zone
     const [historyToggle, setHistoryToggle] = useState<boolean>(false);
     const expandCard = historyToggle ? `${styles.expandedCard}` : `` ;
-    const [curency1, setCurency1] = useState<string>('RON') // AED
-    const [curency2, setCurency2] = useState<string>('EUR')
+    const [curency1, setCurency1] = useState<string>('AED') // AED
+    const [curency2, setCurency2] = useState<string>('AED')
 
     const test = () => {
         setHistoryToggle(!historyToggle)
@@ -118,9 +118,8 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
 
     return (
         <div className={`${styles.moduleContainer}`}>
-            <Card customClass={`${expandCard} ${styles.container} a`}>
+            <Card customClass={`${expandCard} ${styles.container}`}>
                 <h3>{cardTitle}</h3>
-
                 <div className={`${styles.box}`}>
                     <div> 
                         <div className={`${styles.inputContainer}`}>
@@ -191,8 +190,7 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
                 </div> 
             </Card>
             
-            <div>
-            <Card customClass={`${styles.curencyCard}`}>
+            <div className={`${styles.secondContainer}`}>
                 <CurencyComponent
                     firstNumber={firstNumber}
                     secondNumber={secondNumber}
@@ -201,9 +199,8 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
                     firstCurrency={curency1} 
                     secondCurrency={curency2}                
                 />
-            </Card>
 
-            <History history={history} resetValues={resetValues}/>
+                <History history={history} resetValues={resetValues}/>
             </div>
         </div>
     )
