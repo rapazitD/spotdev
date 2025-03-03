@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { HistoryProps } from "./History.types.tsx"
 import Card from "../Card/Card.tsx"
 import styles from "./History.module.css"
-import CustomButton from "../CustomButton/CustomButton.tsx";
+import IconButton from "./IconButton/IconButton.tsx";
  
 const History = ({history, resetValues} : HistoryProps) => {
     const [showHistory, setShowHistory] = useState<boolean>(false);
     const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
-    
+
     const onClickHandler = () => {
         resetValues();
         setShowHistory(false);
@@ -21,31 +21,57 @@ const History = ({history, resetValues} : HistoryProps) => {
             setShowHistory(true);
         }
     }, [history])
+
+    
+    const removeItem = () => {
+    
+    };
     
     return (
         <Card customClass={`${styles.card}`}>
-            <h3>Calculation History</h3>
-            <CustomButton 
-                isColored={false}
-                buttonText="clear values"
-                onClick={()=> onClickHandler()}
-            />
+            <div className={`${styles.titleSection}`}>
+                <h3>Calculation History</h3>
+                <IconButton 
+                    color="#DEDCFF"
+                    textColor="#544DB4" 
+                    buttonText={"clear history"}
+                    type="back" 
+                    onClick={() => onClickHandler()}
+                />
+            </div>
             <div className={`${styles.historyContainer}`}>
                 {showHistory ? (
                     <div>
                         {history.map((el) => (
-                            <Card key={el.id}>
-                                <div >
-                                    {el.id}. {el.firstNumber} {el.operation} {el.secondNumber} = {el.result}
+                            <div className={`${styles.historyCard}`} key={el.id}>
+                                <div className={`${styles.iconSection}`}>
+                                    <IconButton 
+                                        buttonText="delete"
+                                        textColor="#E24040"
+                                        color="#ffffff" 
+                                        type="delete"
+                                        isIconButton={true}
+                                        onClick={() => removeItem()}                                     
+                                    />
+                                    <IconButton 
+                                        buttonText="list"
+                                        textColor="#E24040"
+                                        color="#ffffff" 
+                                        type="copy"
+                                        isIconButton={true}
+                                        onClick={() => removeItem()}                                     
+                                    />
                                 </div>
-                            </Card>
+                                <div className={`${styles.dataSection}`}>
+                                    {el.firstNumber} {el.operation} {el.secondNumber} = {el.result}
+                                </div>
+                            </div>
                         ))}
                     </div>
                 ) : (
-                    <p>Press CALCULATE to start saving your results</p>
+                    <div className={`${styles.infoText}`}>Press CALCULATE to start saving your results</div>
                 )} 
             </div>
-            
         </Card>
     );
 };

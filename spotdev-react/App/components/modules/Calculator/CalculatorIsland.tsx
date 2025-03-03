@@ -8,7 +8,6 @@ const CalculatorIsland = (props: CalculatorProps) => {
     const { fieldValues } = props;
     const {textTitle, textSection, calculateText } = fieldValues;
     
-    console.log('calculateText',calculateText)
     return (
         <div className={`${classes.container}`}>
             <TextComponent textTitle={textTitle} textSection={textSection} />
