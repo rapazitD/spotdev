@@ -1,5 +1,5 @@
 export type HistoryProps = {
-    history: HistoryObj[];
+    history: HistoryObj;
     resetValues: Function;
 }
 

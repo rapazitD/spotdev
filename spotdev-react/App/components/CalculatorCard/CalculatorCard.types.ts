@@ -1,6 +1,9 @@
 export type CalculatorCardProps = {
     cardTitle: string;
     btnCalculateText: string;
+    inputFieldText1: string;
+    inputFieldText2: string;
+    primaryColor: string;
 }
 
 export type CaldulatorCardHistoryProps = {

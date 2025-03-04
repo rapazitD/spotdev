@@ -142,8 +142,6 @@ input:checked + .slider:before {
   margin-left: 25px;
 }
 
-
-
 .currencyContainer {
   display: flex;
   flex-direction: row;

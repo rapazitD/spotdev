@@ -4,6 +4,9 @@ export type fieldTypes = {
     textTitle: string;
     textSection: string;
     calculateText: string;
+    inputFieldOne: string;
+    inputFieldTwo: string;
+    primaryColor: string;
 }
 
 export type CalculatorProps = {
