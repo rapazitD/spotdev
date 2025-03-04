@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HistoryProps } from "./History.types.tsx"
+import { HistoryObj, HistoryProps } from "./History.types.tsx"
 import Card from "../Card/Card.tsx"
 import styles from "./History.module.css"
 import IconButton from "./IconButton/IconButton.tsx";
@@ -7,6 +7,7 @@ import IconButton from "./IconButton/IconButton.tsx";
 const History = ({history, resetValues} : HistoryProps) => {
     const [showHistory, setShowHistory] = useState<boolean>(false);
     const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
+    const [historyArr, setHistoryArr] = useState<HistoryObj[]>([]);
 
     const onClickHandler = () => {
         resetValues();
@@ -17,16 +18,28 @@ const History = ({history, resetValues} : HistoryProps) => {
             setIsFirstRender(false);
             return;
         }
-        if (history.length > 0) {
+        if (history !== null) {
             setShowHistory(true);
+            setHistoryArr([...historyArr, history]);
+            console.log('test', historyArr)
+        } else {
+            setShowHistory(false);
         }
     }, [history])
 
     
-    const removeItem = () => {
-    
+    const removeItem = (id: number) => {
+        const newArray: HistoryObj[] = historyArr.filter(obj => obj.id !== id);
+        setHistoryArr(newArray);
+        if (historyArr.length === 0) {
+            setShowHistory(false);
+        }
     };
-    
+
+    const copyItem = () => {
+
+    };
+
     return (
         <Card customClass={`${styles.card}`}>
             <div className={`${styles.titleSection}`}>
@@ -42,7 +55,7 @@ const History = ({history, resetValues} : HistoryProps) => {
             <div className={`${styles.historyContainer}`}>
                 {showHistory ? (
                     <div>
-                        {history.map((el) => (
+                        {historyArr.map((el) => (
                             <div className={`${styles.historyCard}`} key={el.id}>
                                 <div className={`${styles.iconSection}`}>
                                     <IconButton 
@@ -51,7 +64,7 @@ const History = ({history, resetValues} : HistoryProps) => {
                                         color="#ffffff" 
                                         type="delete"
                                         isIconButton={true}
-                                        onClick={() => removeItem()}                                     
+                                        onClick={() => removeItem(el.id)}                                     
                                     />
                                     <IconButton 
                                         buttonText="list"
@@ -59,7 +72,7 @@ const History = ({history, resetValues} : HistoryProps) => {
                                         color="#ffffff" 
                                         type="copy"
                                         isIconButton={true}
-                                        onClick={() => removeItem()}                                     
+                                        onClick={() => copyItem()}                                     
                                     />
                                 </div>
                                 <div className={`${styles.dataSection}`}>

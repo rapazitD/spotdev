@@ -9,12 +9,13 @@ import Select from "../Select/Select.tsx";
 import CurencyComponent from "../CurencyComponent/CurencyComponent.tsx";
 
 function TextComponent(props: Readonly<CalculatorCardProps>) {
-    const { cardTitle, btnCalculateText }= props;
-    
+    const { cardTitle, btnCalculateText, inputFieldText1, inputFieldText2 }= props;
+
     const [result, setResult] = useState<number>(0);
     const [firstNumber, setFirstNumber] = useState<string>('');
     const [secondNumber, setSecondNumber] = useState<string>('');
-    const [history, setHistory] = useState<CaldulatorCardHistoryProps[]>([])
+    const [history, setHistory] = useState<CaldulatorCardHistoryProps>(null)
+    const [historyId, setHistoryId] = useState<number>(0);
     const [isFirstRender, setIsFirstRender] = useState<boolean>(true);
     const options: string[] = ["+", "-", "x", "/"]
     const [optionSelected, setOptionSelected] = useState<string>(options[0]);
@@ -44,7 +45,7 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
 
     const createHistroy = (result: number) => {
         const historyObject: CaldulatorCardHistoryProps = {
-            id: history.length + 1,
+            id: historyId,
             firstNumber: Number(firstNumber),
             secondNumber: Number(secondNumber),
             operation: optionSelected,
@@ -62,8 +63,9 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
             const result: number = resultReceived;
 
             setResult(result);
+            setHistoryId(historyId + 1);
             const historyObject = createHistroy(result)
-            setHistory([...history, historyObject]);
+            setHistory(historyObject);
         }
     }
 
@@ -89,7 +91,7 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
     };
 
     const resetValues = () => {
-        setHistory([]);
+        setHistory(null);
     };
 
     const resetCalculatorValues = () => {
@@ -123,7 +125,7 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
                 <div className={`${styles.box}`}>
                     <div> 
                         <div className={`${styles.inputContainer}`}>
-                            <label htmlFor="first-number">First Number <span className={`${styles.tooltip}`}>i</span></label>
+                            <label htmlFor="first-number">{inputFieldText1}<span className={`${styles.tooltip}`}>i</span></label>
                             <input 
                                 type="number" 
                                 id="first-number" 
@@ -134,7 +136,7 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
                             />
                         </div>
                         <div className={`${styles.inputContainer}`}>
-                            <label htmlFor="first-number">Second Number <span className={`${styles.tooltip}`}>i</span></label>
+                            <label htmlFor="first-number">{inputFieldText2}<span className={`${styles.tooltip}`}>i</span></label>
                             <input 
                                 type="number" 
                                 id="secondNumber" 
@@ -204,6 +206,5 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
             </div>
         </div>
     )
-
 }
 export default TextComponent;
