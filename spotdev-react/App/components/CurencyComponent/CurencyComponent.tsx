@@ -4,7 +4,15 @@ import styles from "./CurencyComponent.module.css"
 import Card from "../Card/Card.tsx";
 
  
-const CurencyComponent = ({firstNumber, secondNumber, result, operation, firstCurrency, secondCurrency} : CurrencyProps) => {
+const CurencyComponent = ({
+    firstNumber, 
+    secondNumber, 
+    result, 
+    operation, 
+    firstCurrency, 
+    secondCurrency,
+    apiKey
+} : CurrencyProps) => {
     const [convertedResult, setConvertedResult] = useState<number>(0);
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -14,7 +22,7 @@ const CurencyComponent = ({firstNumber, secondNumber, result, operation, firstCu
         const fetchDataForPosts = async () => {
             try {
                 const response = await fetch(
-                    `https://v6.exchangerate-api.com/v6/61e413b3590a4601b2a0c2ca/latest/${firstCurrency}`
+                    `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${firstCurrency}`
                 );
                 if (!response.ok) {
                     throw new Error(`HTTP error: Status ${response.status}`);

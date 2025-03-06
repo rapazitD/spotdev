@@ -9,7 +9,7 @@ import Select from "../Select/Select.tsx";
 import CurencyComponent from "../CurencyComponent/CurencyComponent.tsx";
 
 function TextComponent(props: Readonly<CalculatorCardProps>) {
-    const { cardTitle, btnCalculateText, inputFieldText1, inputFieldText2 }= props;
+    const { cardTitle, btnCalculateText, inputFieldText1, inputFieldText2, apiKey }= props;
 
     const [result, setResult] = useState<number>(0);
     const [firstNumber, setFirstNumber] = useState<string>('');
@@ -199,7 +199,8 @@ function TextComponent(props: Readonly<CalculatorCardProps>) {
                     result={result}
                     operation={optionSelected} 
                     firstCurrency={curency1} 
-                    secondCurrency={curency2}                
+                    secondCurrency={curency2}
+                    apiKey={apiKey}                
                 />
 
                 <History history={history} resetValues={resetValues}/>
