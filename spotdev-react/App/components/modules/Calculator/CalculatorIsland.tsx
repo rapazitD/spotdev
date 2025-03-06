@@ -5,7 +5,7 @@ import CalculatorCard from "../../CalculatorCard/index.tsx";
 import classes from "./Calculator.module.css"
 
 const CalculatorIsland = (props: CalculatorProps) => {    
-    const { fieldValues } = props;
+    const { fieldValues, apiKey } = props;
     const {textTitle, textSection, calculateText, inputFieldOne, inputFieldTwo, primaryColor } = fieldValues;
     
     return (
@@ -16,7 +16,8 @@ const CalculatorIsland = (props: CalculatorProps) => {
                 btnCalculateText={calculateText}
                 inputFieldText1={inputFieldOne}
                 inputFieldText2={inputFieldTwo}
-                primaryColor={primaryColor}                 
+                primaryColor={primaryColor}
+                apiKey={apiKey}              
             >
             </CalculatorCard>
         </div>

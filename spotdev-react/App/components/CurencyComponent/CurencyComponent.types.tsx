@@ -5,4 +5,5 @@ export type CurrencyProps = {
     operation: string;
     firstCurrency: string;
     secondCurrency: string;
+    apiKey: string;
 }

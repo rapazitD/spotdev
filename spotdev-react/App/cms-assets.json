@@ -1,4 +1,5 @@
 {
   "label": "SpotDev - React",
-  "outputPath": ""
+  "outputPath": "",
+  "secretNames": ["EXCHANGE_RATE_API_KEY"]
 }

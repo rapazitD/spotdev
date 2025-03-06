@@ -13,4 +13,5 @@ export type CalculatorProps = {
     fieldValues: fieldTypes;
     cardValues: CalculatorCardProps;
     calculateText:  string;
+    apiKey: string;
 }
